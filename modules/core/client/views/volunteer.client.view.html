@@ -4,13 +4,13 @@
 		<div class="col-md-6">
 			<div class="input-group">
 				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Name</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Name">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="input-group">
 				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <input type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ejemplo@ejemplo.com">
 			</div>
 		</div>
 	</div>
@@ -19,13 +19,14 @@
 		<div class="col-md-6">
 			<div class="input-group">
 				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Password</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Password">
+				 <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Password again">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="input-group">
 				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Phone</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="(+504) 255-554-34">
 			</div>
 		</div>
 	</div>
@@ -33,35 +34,79 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="input-group">
-				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Address</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Address</span>
+				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Street address, P.O. box, company name, c/o">
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="input-group">
-				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> City</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-road" aria-hidden="true"></span> City</span>
+				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="San Pedro Sula">
 			</div>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-md-6">
-			<div class="input-group">
-				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Country</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-			</div>
+			<span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Country</span>
+			<select name="country" id="country">
+				<option value="0">Select a Country...</option>
+				<option ng-value="{{country.code}}" ng-repeat="country in data.countries">{{country.name}}</option>
+			</select>
 		</div>
 		<div class="col-md-6">
-			<div class="input-group">
-				 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Occupation</span>
-				 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+			<span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Ocupancy</span>
+			<select name="ocupancy" id="ocupancy">
+				<option value="0">Select a Ocupancy...</option>
+				<option ng-value="{{$index + 1}}" ng-repeat="ocupancy in data.ocupancy">{{ocupancy.name}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<h2>
+		Volunteer Experience <button type="button" class="btn btn-link" ng-click="addVolunteer()"><span class="glyphicon glyphicon-plus"></button> 
+	</h2>
+
+	<div class="volunteer">
+		<div class="panel panel-default" ng-repeat="i in data.volunteer">
+		<div class="panel-heading">
+			<h3 class="panel-title">Experience {{$index + 1}}</h3>
+		</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Organization</span>
+						 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="COPA">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group">
+						 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Role</span>
+						 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Voluntary">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group">
+						 <span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Cause</span>
+						 <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Social">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Description</span>
+					<textarea class="form-control" rows="3" placeholder="Write a description about your experience..."></textarea>
+				</div>
 			</div>
 		</div>
 	</div>
 	<br>
-	<h2>Volunteer Experience</h2>
 	<div class="row">
-		
+		<div class="col-md-2 col-md-offset-5">
+			<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+			  Register
+			</button>
+		</div>
 	</div>
 </section>

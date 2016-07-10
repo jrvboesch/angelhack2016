@@ -35,3 +35,12 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.home .img_banner{
+  display: block;
+  margin: 0 auto;
+}
+
+body{
+  background-color: #f7f7f7;
+}
